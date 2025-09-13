@@ -1,1 +1,78 @@
-# Conversation-Management---Summarization
+# Task 1: Conversation Management & Summarization using Groq API
+
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Colab](https://img.shields.io/badge/Platform-Google%20Colab-orange)
+![Groq API](https://img.shields.io/badge/API-Groq%20OpenAI%20Client-green)
+
+---
+
+## 📝 Objective
+The goal of Task 1 is to implement a **conversation management system** capable of:  
+
+- Maintaining a running **user–assistant chat history**
+- Performing **summarization** to keep the conversation concise
+- Allowing **customizable truncation** by turns, characters, or words
+- Implementing **periodic summarization** after every `k` messages using Groq API  
+
+This project demonstrates handling conversational data efficiently while adhering strictly to standard Python and Groq/OpenAI client usage — **no frameworks are used**.
+
+---
+
+## 🔹 Features
+
+1. **Conversation History**
+   - Maintains messages from both user and assistant.
+   - Each message stores the `role` (`user` or `assistant`) and the `content`.
+
+2. **Truncation Options**
+   - Limit conversation by:
+     - Number of turns (`max_turns`)
+     - Number of characters (`max_chars`)
+     - Number of words (`max_words`)
+   - Ensures concise conversation history for downstream processing.
+
+3. **Periodic Summarization**
+   - Summarizes conversation after every `k` messages.
+   - Uses Groq API model `groq/compound-mini` for generating summaries.
+   - Replaces the conversation history with a summarized system message.
+
+4. **Demonstration**
+   - Multiple sample conversations are included.
+   - Outputs show:
+     - Summarized history after periodic triggers
+     - Truncated conversation for different settings
+
+---
+
+## ⚙️ Requirements
+
+- **Python 3.x**
+- **OpenAI-compatible Groq client** (`openai` package)
+- **Requests** (optional, for API testing)
+- **Google Colab** (recommended for demonstration)
+
+**Note:** No frameworks are allowed — only standard Python + Groq/OpenAI client.
+
+---
+
+## 🛠 Setup Instructions
+
+1. **Install dependencies in Colab:**
+
+```bash
+!pip install openai requests
+```
+2. **Set up your Groq API key:**
+```bash
+import os
+os.environ["GROQ_API_KEY"] = "YOUR_GROQ_API_KEY_HERE"
+```
+3. **Initialize the Groq/OpenAI client:**
+```bash
+import openai
+
+client = openai.OpenAI(
+    base_url="https://api.groq.com/openai/v1",
+    api_key=os.environ.get("GROQ_API_KEY")
+)
+```
