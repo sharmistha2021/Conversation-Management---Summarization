@@ -66,18 +66,23 @@ The extracted JSON is validated against a schema for correctness.
 1. **JSON Schema Definition**
    
    -Specifies required fields: name, email, phone, location, age
+   
 3. **Function Calling with Groq API**
    
    -Uses Groq’s OpenAI-compatible client for structured outputs
+   
    -Extracts structured data from free-form chats
 
 5. **Validation**
    
    -Each output is checked against the JSON schema using jsonschema
+   
    -Returns True/False for schema compliance
+   
 7. **Demonstration**
    
    -At least 3 sample chats are processed
+   
    -Shows extracted JSON and validation results
 
 ## ⚙️ Requirements
