@@ -1,4 +1,4 @@
-# Task 1: Conversation Management & Summarization using Groq API
+# Task 1: Conversation Summarization using Groq API
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Colab](https://img.shields.io/badge/Platform-Google%20Colab-orange)
