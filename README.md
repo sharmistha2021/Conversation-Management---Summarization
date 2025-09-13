@@ -50,41 +50,31 @@ The goal of Task 2 is to implement structured information extraction from conver
 
 This ensures that free-text chats can be transformed into structured JSON outputs containing:
 
-Name
+   -Name
 
-Email
+   -Email
 
-Phone
+   -Phone
 
-Location
+   -Location
 
-Age
+   -Age
 
 The extracted JSON is validated against a schema for correctness.
-
+---
 🔹 Features
+1. **JSON Schema Definition**
+      -Specifies required fields: name, email, phone, location, age
+2. **Function Calling with Groq API**
+      -Uses Groq’s OpenAI-compatible client for structured outputs
+      -Extracts structured data from free-form chats
 
-JSON Schema Definition
-
-Specifies required fields: name, email, phone, location, age
-
-Function Calling with Groq API
-
-Uses Groq’s OpenAI-compatible client for structured outputs
-
-Extracts structured data from free-form chats
-
-Validation
-
-Each output is checked against the JSON schema using jsonschema
-
-Returns True/False for schema compliance
-
-Demonstration
-
-At least 3 sample chats are processed
-
-Shows extracted JSON and validation results
+3. **Validation**
+      -Each output is checked against the JSON schema using jsonschema
+      -Returns True/False for schema compliance
+4. **Demonstration**
+      -At least 3 sample chats are processed
+      -Shows extracted JSON and validation results
 
 ## ⚙️ Requirements
 
