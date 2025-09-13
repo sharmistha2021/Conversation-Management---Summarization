@@ -44,46 +44,41 @@ This project demonstrates handling conversational data efficiently while adherin
 
 ---
 # Task 2: JSON Schema Classification & Information Extraction using Groq API
-📝 Objective
+---
+
+## 📝 Objective
 
 The goal of Task 2 is to implement structured information extraction from conversational chats using a JSON Schema and Groq API function calling.
 
 This ensures that free-text chats can be transformed into structured JSON outputs containing:
 
-   -Name
-
-   -Email
-
-   -Phone
-
-   -Location
-
-   -Age
+- Name
+- Email
+- Phone
+- Location
+- Age
 
 The extracted JSON is validated against a schema for correctness.
----
-🔹 **Features**
-1. **JSON Schema Definition**
-   
-   -Specifies required fields: name, email, phone, location, age
-   
-3. **Function Calling with Groq API**
-   
-   -Uses Groq’s OpenAI-compatible client for structured outputs
-   
-   -Extracts structured data from free-form chats
 
-5. **Validation**
-   
-   -Each output is checked against the JSON schema using jsonschema
-   
-   -Returns True/False for schema compliance
-   
-7. **Demonstration**
-   
-   -At least 3 sample chats are processed
-   
-   -Shows extracted JSON and validation results
+---
+
+## 🔹 Features
+
+### 1. JSON Schema Definition
+- Specifies required fields: `name`, `email`, `phone`, `location`, `age`
+
+### 2. Function Calling with Groq API
+- Uses Groq’s OpenAI-compatible client for structured outputs
+- Extracts structured data from free-form chats
+
+### 3. Validation
+- Each output is checked against the JSON schema using `jsonschema`
+- Returns True/False for schema compliance
+
+### 4. Demonstration
+- At least 3 sample chats are processed
+- Shows extracted JSON and validation results
+
 
 ## ⚙️ Requirements
 
@@ -92,7 +87,7 @@ The extracted JSON is validated against a schema for correctness.
 - **Requests** (optional, for API testing)
 - **Google Colab** (recommended for demonstration)
 
-**Note:** No frameworks are allowed — only standard Python + Groq/OpenAI client.
+**Note:** No frameworks used — only standard Python + Groq/OpenAI client.
 
 ---
 
