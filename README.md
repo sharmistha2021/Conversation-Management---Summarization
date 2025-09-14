@@ -59,10 +59,13 @@ conversation_history = [{"role": "system", "content": f"Summary so far: {summary
 
 5. **Demonstration**
 ```bash
+# Example outputs
 Truncated to last 4 messages:
 system: Summary so far: We've just started...
+
 Truncated to last 50 characters:
 system: ...next about neural networks or AI?
+
 ```
 **Explanation**
    - Multiple sample conversations are included.
@@ -94,19 +97,61 @@ The extracted JSON is validated against a schema for correctness.
 
 ### 1. JSON Schema Definition
 - Specifies required fields: `name`, `email`, `phone`, `location`, `age`
+```python
+REQUIRED_FIELDS = ["name", "email", "phone", "location", "age"]
+```
 
 ### 2. Function Calling with Groq API
 - Uses Groq’s OpenAI-compatible client for structured outputs
 - Extracts structured data from free-form chats
+```python
+def extract_info(chat_text):
+    """
+    Extract structured information from chat using Groq API.
+    """
+    response = client.chat.completions.create(
+        model="llama-3.1-8b-instant",
+        messages=[
+            {"role": "system", "content": "You are an information extractor. Only reply in valid JSON."},
+            {"role": "user", "content": f"Extract fields {REQUIRED_FIELDS} from chat:\n{chat_text}"}
+        ],
+        temperature=0,          # deterministic output
+        max_completion_tokens=300,
+        top_p=1,
+        stream=False
+    )
+    try:
+        extracted = json.loads(response.choices[0].message.content)
+    except json.JSONDecodeError:
+        extracted = {"error": "Failed to parse JSON"}
+    return extracted
+```
 
 ### 3. Validation
 - Each output is checked against the JSON schema using `jsonschema`
 - Returns True/False for schema compliance
+```python
+from jsonschema import validate, ValidationError
 
+def validate_schema(data):
+    schema = {
+        "type": "object",
+        "properties": {field: {"type": "string"} for field in REQUIRED_FIELDS},
+        "required": REQUIRED_FIELDS
+    }
+    try:
+        validate(instance=data, schema=schema)
+        return True
+    except ValidationError:
+        return False
+```
 ### 4. Demonstration
 - At least 3 sample chats are processed
 - Shows extracted JSON and validation results
-
+```python
+Extracted Info: {'name': 'Alice Johnson', 'email': 'alice@example.com', 'phone': '555-1234', 'location': 'New York', 'age': '29'}
+Valid Schema: True
+```
 
 ## ⚙️ Requirements
 
