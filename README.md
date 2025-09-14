@@ -21,8 +21,6 @@ This project demonstrates handling conversational data efficiently while adherin
 ## 🔹 Features and Code Explanation
 
 1. **Conversation History**
-   - Maintains messages from both user and assistant.
-   - Each message stores the `role` (`user` or `assistant`) and the `content`.
 ```bash
 conversation_history = []
 
@@ -36,7 +34,14 @@ def add_message(role, content):
     """
     conversation_history.append({"role": role, "content": content})
 ```
+**Explanation:**
+   - Each message is stored as a dictionary with role and content.
+   - All messages are kept in the conversation_history list for later processing, truncation, or summarization.
 2. **Truncation Options**
+```bash
+truncated_history = truncate_history(conversation_history, max_turns=4)
+```
+**Explanation**
    - Limit conversation by:
      - Number of turns (`max_turns`)
      - Number of characters (`max_chars`)
@@ -44,11 +49,22 @@ def add_message(role, content):
    - Ensures concise conversation history for downstream processing.
 
 3. **Periodic Summarization**
+```bashsummary = summarize_history(conversation_history)
+conversation_history = [{"role": "system", "content": f"Summary so far: {summary}"}]
+```
+**Explanation**
    - Summarizes conversation after every `k` messages.
    - Uses Groq API model `groq/compound-mini` for generating summaries.
    - Replaces the conversation history with a summarized system message.
 
-4. **Demonstration**
+5. **Demonstration**
+```bash
+Truncated to last 4 messages:
+system: Summary so far: We've just started...
+Truncated to last 50 characters:
+system: ...next about neural networks or AI?
+```
+**Explanation**
    - Multiple sample conversations are included.
    - Outputs show:
      - Summarized history after periodic triggers
