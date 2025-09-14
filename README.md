@@ -18,12 +18,24 @@ This project demonstrates handling conversational data efficiently while adherin
 
 ---
 
-## 🔹 Features
+## 🔹 Features and Code Explanation
 
 1. **Conversation History**
    - Maintains messages from both user and assistant.
    - Each message stores the `role` (`user` or `assistant`) and the `content`.
+```bash
+conversation_history = []
 
+def add_message(role, content):
+    """
+    Add a message to conversation history.
+
+    Args:
+        role (str): 'user' or 'assistant'
+        content (str): Text content
+    """
+    conversation_history.append({"role": role, "content": content})
+```
 2. **Truncation Options**
    - Limit conversation by:
      - Number of turns (`max_turns`)
