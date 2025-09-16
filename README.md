@@ -39,7 +39,7 @@ def add_message(role, content):
    - All messages are kept in the conversation_history list for later processing, truncation, or summarization.
 2. **Truncation Options**
 ```bash
-truncated_history = truncate_history(conversation_history, max_turns=4)
+conversation_history = truncate_history(conversation_history, max_turns=6, max_chars=500, max_words=100)
 ```
 **Explanation**
    - Limit conversation by:
@@ -60,11 +60,10 @@ conversation_history = [{"role": "system", "content": f"Summary so far: {summary
 5. **Demonstration**
 ```bash
 # Example outputs
-Truncated to last 4 messages:
-system: Summary so far: We've just started...
-
-Truncated to last 50 characters:
-system: ...next about neural networks or AI?
+system: Summary so far: Here is a summary of our conversation so far: We have just begun discussing AI, and I provided information on neural networks. Neural networks are models inspired by the brain. I had also offered to provide an overview of neural networks, including their basic structure and function. No further conversation has taken place yet.
+user: Cool! How are they trained?
+assistant: They learn by adjusting weights during training.
+user: Thanks, that helps!
 
 ```
 **Explanation**
