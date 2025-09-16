@@ -1,4 +1,4 @@
-# Task 1: Conversation Summarization using Groq API
+# Task 1: Managing Conversation History with Summarization
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![Colab](https://img.shields.io/badge/Platform-Google%20Colab-orange)
@@ -74,7 +74,7 @@ system: ...next about neural networks or AI?
      - Truncated conversation for different settings
 
 ---
-# Task 2: JSON Schema Classification & Information Extraction using Groq API
+# Task 2: JSON Schema Classification & Information Extraction
 ---
 
 ## 📝 Objective
